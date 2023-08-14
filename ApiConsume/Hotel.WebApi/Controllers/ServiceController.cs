@@ -12,11 +12,16 @@ namespace Hotel.WebApi.Controllers
     {
         private readonly IServiceService _serviceService;
 
+        public ServiceController(IServiceService serviceService)
+        {
+            _serviceService = serviceService;
+        }
+
         [HttpGet]
         public IActionResult ListService()
         {
             var values = _serviceService.TGetList();
-            return Ok();
+            return Ok(values);
         }
         [HttpPost]
         public IActionResult AddService(Service service)
@@ -24,7 +29,7 @@ namespace Hotel.WebApi.Controllers
             _serviceService.TInsert(service);
             return Ok();
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteService(int id)
         {
             var values = _serviceService.TGetByID(id);
@@ -41,7 +46,7 @@ namespace Hotel.WebApi.Controllers
         public IActionResult GetService(int id)
         {
             var values = _serviceService.TGetByID(id);
-            return Ok();
+            return Ok(values);
         }
     }
 }

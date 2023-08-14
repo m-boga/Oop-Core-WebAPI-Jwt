@@ -12,6 +12,12 @@ namespace Hotel.BusinessLayer.Concrete
     public class RoomManager : IRoomService
     {
         private readonly IRoomDal _roomDal;
+
+        public RoomManager(IRoomDal roomDal)
+        {
+            _roomDal = roomDal;
+        }
+
         public void TDelete(Room t)
         {
             _roomDal.Delete(t);

@@ -20,7 +20,7 @@ namespace Hotel.WebApi.Controllers
         public IActionResult ListRoom()
         {
             var values = _roomService.TGetList();
-            return Ok();
+            return Ok(values);
         }
         [HttpPost]
         public IActionResult AddRoom(Room room)

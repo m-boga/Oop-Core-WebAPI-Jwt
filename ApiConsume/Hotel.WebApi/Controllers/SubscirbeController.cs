@@ -21,7 +21,7 @@ namespace Hotel.WebApi.Controllers
         public IActionResult ListSubscribe()
         {
             var values = _subscribeService.TGetList();
-            return Ok();
+            return Ok(values);
         }
         [HttpPost]
         public IActionResult AddSubscribe(Subscribe subscribe)

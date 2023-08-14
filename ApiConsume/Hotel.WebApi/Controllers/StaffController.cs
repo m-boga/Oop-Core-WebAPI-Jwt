@@ -19,7 +19,7 @@ namespace Hotel.WebApi.Controllers
         public IActionResult ListStaff()
         {
             var values = _staffService.TGetList();
-            return Ok();
+            return Ok(values);
         }
         [HttpPost]
         public IActionResult AddStaff(Staff staff)
@@ -27,7 +27,7 @@ namespace Hotel.WebApi.Controllers
             _staffService.TInsert(staff);
             return Ok();
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteStaff(int id)
         {
             var values = _staffService.TGetByID(id);
